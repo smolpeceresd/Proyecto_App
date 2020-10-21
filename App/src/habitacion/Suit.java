@@ -25,12 +25,12 @@ public class Suit extends Habitacion{
 	}
 
 	//metodos
-	
+
 	public String toString(){
 		String deVuelta=super.toString();
-		deVuelta+="\nEsta habitacion, también cuenta con servicio de:\n";
+		deVuelta+="\nEsta habitacion, tambiÃ©n cuenta con servicio de:\n";
 		if(this.getPisci()!=null) {
-		deVuelta+="\n\t*Piscina"+this.getPisci().toStringSuit();
+			deVuelta+="\n\t*Piscina"+this.getPisci().toStringSuit();
 		}
 		if(this.isJacuzzi()==true) {
 			deVuelta+="\n\t*Jacuzzi";
@@ -41,7 +41,7 @@ public class Suit extends Habitacion{
 		return deVuelta;
 	}
 	///////////////////////////////////////////////////
-	
+
 	public Piscina getPisci() {
 		return pisci;
 	}
@@ -71,6 +71,4 @@ public class Suit extends Habitacion{
 	}
 
 	///////////////////////////////////////////////////
-
-
 }
