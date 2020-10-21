@@ -20,11 +20,11 @@ public class DataBase {
 	private Vector<Usuario> vectorUsuario=new Vector <Usuario>();
 	public DataBase() {};
 
-	public void añadeHotel(Hotel a) {
+	public void aÃ±adeHotel(Hotel a) {
 		vectorHoteles.add(a);
 	}
 
-	public void añadeUsuario(Usuario a) {
+	public void aÃ±adeUsuario(Usuario a) {
 		vectorUsuario.add(a);
 	}
 
@@ -36,20 +36,20 @@ public class DataBase {
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
-	public int hotelRegistrado(String nombre, String contraseña) {
+	public int hotelRegistrado(String nombre, String contraseÃ±a) {
 		for(int i=0;i<this.getVectorHoteles().size();i++) {
 			if(this.getVectorHoteles().elementAt(i).getNombreHotel().equals(nombre)==true) {
-				if(this.getVectorHoteles().elementAt(i).getContraseñaHotel().equals(contraseña)==true) {
+				if(this.getVectorHoteles().elementAt(i).getContraseÃ±aHotel().equals(contraseÃ±a)==true) {
 					return i;
 				}
 			}
 		}
 		return -1;
 	}
-	public int usuarioRegistrado(String nombre, String contraseña) {
+	public int usuarioRegistrado(String nombre, String contraseÃ±a) {
 		for(int i=0;i<this.getVectorUsuario().size();i++) {
 			if(this.getVectorUsuario().elementAt(i).getNombre().equals(nombre.toUpperCase())==true) {
-				if(this.getVectorUsuario().elementAt(i).getContraseña().equals(contraseña)==true) {
+				if(this.getVectorUsuario().elementAt(i).getContraseÃ±a().equals(contraseÃ±a)==true) {
 					return i;
 				}
 			}
@@ -72,7 +72,7 @@ public class DataBase {
 		}
 		return eleccion-1;
 	}
-	
+
 	public int seleccionaHabitacion(Hotel hotel) {
 		System.out.print("Selecciona la habitacion que quieres reservar");
 		for(int i=0;i<hotel.getRooms().size();i++) {
@@ -84,7 +84,7 @@ public class DataBase {
 		int eleccion=sc.nextInt();
 		return eleccion-1;
 	}
-	
+
 	public Hotel buscaHotel(Reserva reserva) {
 		for(Hotel elem:this.getVectorHoteles()) {
 			if(elem.equals(reserva.getHotel())==true) {
