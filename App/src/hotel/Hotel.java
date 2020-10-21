@@ -16,11 +16,11 @@ public class Hotel {
 	//Atributos
 	private int numeroHabitaciones=0;
 	private String nombreHotel;
-	private String contraseñaHotel;
+	private String contraseÃ±aHotel;
 	private String telefono;
 	private String direccion;
 	private boolean aparcamiento;
-	private boolean niños;
+	private boolean niÃ±os;
 	private int numeroEstrellas;
 	private Piscina pisci=null;
 	private Restaurante restaurante=null;
@@ -33,13 +33,13 @@ public class Hotel {
 	//constructores
 
 	public Hotel(String nombreHotel, String telefono, String direccion, boolean aparcamiento,
-			boolean niños,String contraseña) {
+			boolean niÃ±os,String contraseÃ±a) {
 		this.nombreHotel = nombreHotel;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.aparcamiento = aparcamiento;
-		this.niños = niños;
-		this.contraseñaHotel=contraseña;
+		this.niÃ±os = niÃ±os;
+		this.contraseÃ±aHotel=contraseÃ±a;
 	}
 
 
@@ -111,11 +111,11 @@ public class Hotel {
 
 	///////////////////////////////////////////////////
 
-	public boolean isNiños() {
-		return niños;
+	public boolean isNiÃ±os() {
+		return niÃ±os;
 	}
-	public void setNiños(boolean niños) {
-		this.niños = niños;
+	public void setNiÃ±os(boolean niÃ±os) {
+		this.niÃ±os = niÃ±os;
 	}
 
 	///////////////////////////////////////////////////
@@ -130,13 +130,13 @@ public class Hotel {
 
 	///////////////////////////////////////////////////
 
-	public String getContraseñaHotel() {
-		return contraseñaHotel;
+	public String getContraseÃ±aHotel() {
+		return contraseÃ±aHotel;
 	}
 
 
-	public void setContraseñaHotel(String contraseñaHotel) {
-		this.contraseñaHotel = contraseñaHotel;
+	public void setContraseÃ±aHotel(String contraseÃ±aHotel) {
+		this.contraseÃ±aHotel = contraseÃ±aHotel;
 
 	}
 	///////////////////////////////////////////////////
@@ -163,7 +163,7 @@ public class Hotel {
 
 	///////////////////////////////////////////////////
 
-	public void añade(Habitacion a) {
+	public void aÃ±ade(Habitacion a) {
 		this.getRooms().add(a);
 		this.numeroHabitaciones=this.getNumeroHabitaciones()+a.getNumeroTipo();
 	}
@@ -215,7 +215,7 @@ public class Hotel {
 	///////////////////////////////////////////////////
 
 
-	public void añadeReserva(Reserva a) {
+	public void aÃ±adeReserva(Reserva a) {
 		this.getReservas().add(a);
 	}
 
@@ -230,8 +230,8 @@ public class Hotel {
 		if(this.isAparcamiento()==true) {
 			deVuelta+=("\n*Tiene aparcamiento");
 		}
-		if(this.isNiños()==true) {
-			deVuelta+=("\n*Acepta niños");
+		if(this.isNiÃ±os()==true) {
+			deVuelta+=("\n*Acepta niÃ±os");
 		}
 		if(this.getPisci()!=null) {
 			deVuelta+=("\nPiscina:\n"+ this.getPisci().toString());
@@ -251,33 +251,33 @@ public class Hotel {
 			}else
 				deVuelta+="\n\n\n Tipo de habitacion: "+elem.getClass().getSimpleName()+"\n"+elem.toString();
 		}
-	return deVuelta;
-}
-
-public Habitacion escogeHabitacion() {
-	System.out.println("\nLas Habitaciones del hotel:\n");
-	for(int i=0;i<this.getRooms().size();i++) {
-		System.out.println("\tHabitacion numero "+(i+1)+":\n"+this.getRooms().get(i).toStringUsuario());
+		return deVuelta;
 	}
-	@SuppressWarnings("resource")
-	Scanner sc=new Scanner(System.in);
-	System.out.print("\n\nDime la nueva habitacion\nEleccion: ");
-	int eleccion=sc.nextInt();
-	while(eleccion<0 && eleccion>=this.getRooms().size()) {
-		System.out.print("Seleccion fuera de rango.Prueba otra vez\nEleccion: ");
-	}
-	return this.getRooms().get(eleccion-1);
-}
 
-public void eliminaReserva(Usuario user,Reserva reserva) {
-	for(int i=0;i<this.getReservas().size();i++) {
-		if(this.getReservas().get(i).getUsuario().equals(user)==true) {//si coincide el usuario
-			if(this.getReservas().get(i).getHabitacion().equals(reserva.getHabitacion())==true) {//y si coincide la habitacion reservada
-				this.getReservas().remove(i);//borrala
-				break;//sal de aqui
+	public Habitacion escogeHabitacion() {
+		System.out.println("\nLas Habitaciones del hotel:\n");
+		for(int i=0;i<this.getRooms().size();i++) {
+			System.out.println("\tHabitacion numero "+(i+1)+":\n"+this.getRooms().get(i).toStringUsuario());
+		}
+		@SuppressWarnings("resource")
+		Scanner sc=new Scanner(System.in);
+		System.out.print("\n\nDime la nueva habitacion\nEleccion: ");
+		int eleccion=sc.nextInt();
+		while(eleccion<0 && eleccion>=this.getRooms().size()) {
+			System.out.print("Seleccion fuera de rango.Prueba otra vez\nEleccion: ");
+		}
+		return this.getRooms().get(eleccion-1);
+	}
+
+	public void eliminaReserva(Usuario user,Reserva reserva) {
+		for(int i=0;i<this.getReservas().size();i++) {
+			if(this.getReservas().get(i).getUsuario().equals(user)==true) {//si coincide el usuario
+				if(this.getReservas().get(i).getHabitacion().equals(reserva.getHabitacion())==true) {//y si coincide la habitacion reservada
+					this.getReservas().remove(i);//borrala
+					break;//sal de aqui
+				}
 			}
 		}
 	}
-}
 
 }
