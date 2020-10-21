@@ -57,7 +57,7 @@ public class Habitacion {
 		if(this.isAdaptadaMinusvalidos()==true) {
 			deVuelta+="\n\t*Esta habitacion esta adaptada para minusvalidos";
 		}
-		deVuelta+="\nPrecio de la habitacion: "+this.getPrecio()+"€";
+		deVuelta+="\nPrecio de la habitacion: "+this.getPrecio()+"â‚¬";
 		deVuelta+="\nEl numero de habitaciones que hay como esta son: "+this.getNumeroTipo();
 		return deVuelta;
 
@@ -84,7 +84,7 @@ public class Habitacion {
 		if(this.isAdaptadaMinusvalidos()==true) {
 			deVuelta+="\n\t*Esta habitacion esta adaptada para minusvalidos";
 		}
-		deVuelta+="\nPrecio de la habitacion: "+this.getPrecio()+"€";
+		deVuelta+="\nPrecio de la habitacion: "+this.getPrecio()+"â‚¬";
 		return deVuelta;
 
 	}
