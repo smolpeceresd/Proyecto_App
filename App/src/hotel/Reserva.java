@@ -56,5 +56,4 @@ public class Reserva {
 	public void setHabitacion(Habitacion habitacion) {
 		this.habitacion = habitacion;
 	}
-
 }
