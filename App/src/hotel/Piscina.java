@@ -33,17 +33,17 @@ public class Piscina {
 		deVuelta+=("\n* Dimensiones: "+this.getDimensiones()[0]+" x "+ this.getDimensiones()[1]);
 
 		if(this.isClimatizada()==true) {
-			deVuelta+=("\n\t* Climatizada: Sí");
+			deVuelta+=("\n\t* Climatizada: SÃ­");
 		}else{ deVuelta+=("\n\t* CLimatizada: No");}
 
 		if(this.isServicioToallas()==true) {
-			deVuelta+=("\n\t* Servicio de toallas: Sí");
+			deVuelta+=("\n\t* Servicio de toallas: SÃ­");
 		}else{
 			deVuelta+=("\n\t* Servicio de Toallas: No");
 		}
 
 		if(this.isBarPiscina()==true) {
-			deVuelta+=("\n\t* Bar en la piscina: Sí");
+			deVuelta+=("\n\t* Bar en la piscina: SÃ­");
 		}else {
 			deVuelta+=("\n\t* Bar en la piscina: No");
 		}
@@ -56,7 +56,7 @@ public class Piscina {
 		deVuelta+=("\n\n* Dimensiones: "+this.getDimensiones()[0]+" x "+ this.getDimensiones()[1]);
 
 		if(this.isClimatizada()==true) {
-			deVuelta+=("\n\t* Climatizada: Sí");
+			deVuelta+=("\n\t* Climatizada: SÃ­");
 		}else{ deVuelta+=("\n\t* Climatizada: No");}
 		
 		return deVuelta;
