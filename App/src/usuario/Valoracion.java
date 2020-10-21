@@ -12,8 +12,8 @@ public class Valoracion {
 	
 	
 	//constructor 
-	public Valoracion(String valoracion, int calificación) {
-		this.calificacion=calificación;
+	public Valoracion(String valoracion, int calificaciÃ³n) {
+		this.calificacion=calificaciÃ³n;
 		this.valoracion=valoracion;
 	}
 	
