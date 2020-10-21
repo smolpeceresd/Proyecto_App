@@ -28,7 +28,7 @@ public class Restaurante {
 	public String toString() {
 		String deVuelta="";
 		if(this.getDescripcion()!=null) {
-			deVuelta+=("\n\t*Descripción:\n\t"+ this.getDescripcion());
+			deVuelta+=("\n\t*DescripciÃ³n:\n\t"+ this.getDescripcion());
 		}
 		deVuelta+=("\n\t*Numero de Mesas: "+ this.getNumeroMesas());
 		deVuelta+=("\n\t*Servicios:\n");
@@ -85,7 +85,7 @@ public class Restaurante {
 	public static int menuEdicion() {
 		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
-		System.out.print("\n¿Que vamos a cambiar?\n"
+		System.out.print("\nÂ¿Que vamos a cambiar?\n"
 				+ "1 La descripcion\n"+
 				"2 Servicio de desayuno\n"+
 				"3 Servico de comida\n"+
@@ -98,10 +98,10 @@ public class Restaurante {
 
 	}
 	public static String descripcion() {
-		if(decisiones("¿Quieres añadir una descripción?")==true) {
+		if(decisiones("Â¿Quieres aÃ±adir una descripciÃ³n?")==true) {
 			@SuppressWarnings("resource")
 			Scanner sc= new Scanner(System.in);
-			System.out.print("Descripción:");
+			System.out.print("DescripciÃ³n:");
 			String descripcion=sc.nextLine();
 			return descripcion;
 		}else {
