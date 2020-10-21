@@ -15,11 +15,11 @@ public class Usuario {
 	private String correo;
 	private String telefono;
 	private String nombre;
-	private String contraseÒa;
+	private String contrase√±a;
 	private String dNI;
 	private Vector<Reserva> reservas=new Vector<Reserva>();
 
-	public Usuario(String nombre,int edad, String tarjeta, String correo, String telefono, String contraseÒa,
+	public Usuario(String nombre,int edad, String tarjeta, String correo, String telefono, String contrase√±a,
 			String dNI) {
 		super();
 		this.edad = edad;
@@ -27,7 +27,7 @@ public class Usuario {
 		this.correo = correo;
 		this.telefono = telefono;
 		this.nombre = nombre;
-		this.contraseÒa = contraseÒa;
+		this.contrase√±a = contrase√±a;
 		this.dNI = dNI;
 	}
 
@@ -56,24 +56,24 @@ public class Usuario {
 	///////////////////////////////////////////////////
 	public String getNombre() {
 		return nombre;
-	}// el nombre no se podr· cambiar
+	}// el nombre no se podr√° cambiar
 
 	///////////////////////////////////////////////////
-	public String getContraseÒa() {
-		return contraseÒa;
+	public String getContrase√±a() {
+		return contrase√±a;
 	}
-	public void setContraseÒa(String contraseÒa) {
-		this.contraseÒa = contraseÒa;
+	public void setContrase√±a(String contrase√±a) {
+		this.contrase√±a = contrase√±a;
 	}
 	///////////////////////////////////////////////////
 	public String getDNI() {
 		return dNI;
-	}// el DNI no se podr· cambiar
+	}// el DNI no se podr√° cambiar
 
 	///////////////////////////////////////////////////
 	public String getCorreo() {
 		return correo;
-	}//el correo no se podr· cambiar. 
+	}//el correo no se podr√° cambiar. 
 
 	///////////////////////////////////////////////////
 	public String getTelefono() {
@@ -88,7 +88,7 @@ public class Usuario {
 		return reservas;
 	}
 
-	public void aÒadeReserva(Reserva a) {
+	public void a√±adeReserva(Reserva a) {
 		this.getReservas().add(a);
 	}
 
