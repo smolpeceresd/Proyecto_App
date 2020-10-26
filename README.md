@@ -12,6 +12,7 @@ Este proyecto ha sido creado con las siguientes especificaciones:
 
 # APP
 Esta app ha sido diseñada para:
+
 	* Las empresas puedan promocionarse en nuestra app.
 	* Los usuarios puedan hacer reservas en dichos hoteles.
 	
