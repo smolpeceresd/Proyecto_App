@@ -1,6 +1,7 @@
 package habitacion;
 
 import hotel.Piscina;
+import traductor.Traductor;
 /**
  * @author Smolpeceresd
  *
@@ -26,17 +27,17 @@ public class Suit extends Habitacion{
 
 	//metodos
 
-	public String toString(){
+	public String toString(Traductor diccionario){
 		String deVuelta=super.toString();
-		deVuelta+="\nEsta habitacion, también cuenta con servicio de:\n";
+		deVuelta+="\n"+diccionario.getTexto("ENCABEZADO_SUIT")+"\n";
 		if(this.getPisci()!=null) {
-			deVuelta+="\n\t*Piscina"+this.getPisci().toStringSuit();
+			deVuelta+="\n\t*"+diccionario.getTexto("PISCINA_H_H")+this.getPisci().toStringSuit(diccionario);
 		}
 		if(this.isJacuzzi()==true) {
-			deVuelta+="\n\t*Jacuzzi";
+			deVuelta+="\n\t*"+diccionario.getTexto("JACUZZI_H_H");
 		}
 		if(this.isBarraBar()==true) {
-			deVuelta+="\n\t*Barra de Bar Personal";
+			deVuelta+="\n\t*"+diccionario.getTexto("BARRA_H_H");
 		}
 		return deVuelta;
 	}
@@ -71,4 +72,6 @@ public class Suit extends Habitacion{
 	}
 
 	///////////////////////////////////////////////////
+
+
 }
