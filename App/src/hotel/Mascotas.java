@@ -1,4 +1,7 @@
 package hotel;
+
+import traductor.Traductor;
+
 /**
  * @author Smolpeceresd
  *
@@ -24,11 +27,11 @@ public class Mascotas {
 	public void setGuarderia(boolean guarderia) {
 		this.guarderia = guarderia;
 	}
-	public String toString() {
+	public String toString(Traductor diccionario) {
 		if(this.isGuarderia()==false) {
-			return "\n\tNuestro hotel permite mascotas , pero no se hace cargo de ellas";
+			return "\n\t"+diccionario.getTexto("GUARDERIA_M");
 		}else {
-			return "\n\tNuestro hotel cuenta con un centro de guarderia donde los perros pueden pasar el dia";
+			return "\n\t"+diccionario.getTexto("GUARDERIA_M_N");
 		}
 	}
 }
