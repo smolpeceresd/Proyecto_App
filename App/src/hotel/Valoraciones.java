@@ -5,6 +5,7 @@ package hotel;
  */
 import java.util.ArrayList;
 
+import traductor.Traductor;
 import usuario.Valoracion;
 
 public class Valoraciones {
@@ -15,9 +16,9 @@ public class Valoraciones {
 	public ArrayList<Valoracion> getListado() {
 		return Listado;
 	}	
-	public String toString() {
+	public String toString(Traductor diccionario) {
 		if(this.getListado().size()==0) {
-			return "De momento nadie ha valorado el hotel";
+			return diccionario.getTexto("TIME");
 		}else {
 			String deVuelta="";
 			for(int i=0;i<Listado.size();i++) {
