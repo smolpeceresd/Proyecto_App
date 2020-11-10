@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import hotel.Hotel;
 import hotel.Reserva;
+import traductor.Traductor;
 import usuario.Usuario;
 
 /**
@@ -57,30 +58,30 @@ public class DataBase {
 		return -1;
 	}
 
-	public int seleccionHotel() {
-		System.out.println("\n\nEstos son los nombres de los hoteles registrados\nSelecciona el numero para acceder a su informacion");
+	public int seleccionHotel(Traductor diccionario) {
+		System.out.println("\n\n"+diccionario.getTexto("LISTA")+"\n"+diccionario.getTexto("SELECT_LISTA"));
 		for(int i=0; i<this.getVectorHoteles().size();i++) {
 			System.out.print((i+1)+") "+this.getVectorHoteles().get(i).getNombreHotel());
 		}
 		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
-		System.out.print("\nEleccion: ");
+		System.out.print(diccionario.getTexto("Eleccion"));
 		int eleccion=sc.nextInt();
 		while(eleccion<=0 && eleccion>=this.getVectorHoteles().size()) {
-			System.out.print("\nDecision no valida. Prueba otra vez\nEleccion: ");
+			System.out.print("\n"+diccionario.getTexto("ERROR_DB"));
 			eleccion=sc.nextInt();
 		}
 		return eleccion-1;
 	}
 
-	public int seleccionaHabitacion(Hotel hotel) {
-		System.out.print("Selecciona la habitacion que quieres reservar");
+	public int seleccionaHabitacion(Hotel hotel,Traductor diccionario) {
+		System.out.print(diccionario.getTexto("SELECT_HAB"));
 		for(int i=0;i<hotel.getRooms().size();i++) {
-			System.out.println("\nHabitacion "+(i+1)+")\n"+hotel.getRooms().get(i));
+			System.out.println("\n"+diccionario.getTexto("ROOM")+(i+1)+")\n"+hotel.getRooms().get(i));
 		}
 		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
-		System.out.println("\nEleccion: ");
+		System.out.println("\n"+diccionario.getTexto("Eleccion"));
 		int eleccion=sc.nextInt();
 		return eleccion-1;
 	}
