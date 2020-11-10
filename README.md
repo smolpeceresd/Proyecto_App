@@ -7,8 +7,8 @@ Santiago Molpeceres Diaz -> smolpeceresd
 Este proyecto ha sido creado con las siguientes especificaciones:
 * Portatil :AsusZenBook.
 * Entorno de desarrollo: Eclipse2020.
-* Version jdk: jdk.8u251-Windows.
-* Version jre: jre.8u251-Windows.
+* Version jdk: jdk-15.0.1-Windows.
+* Version jre: jre.SE-14-Windows.
 
 # APP
 Esta app ha sido diseñada para:
@@ -53,6 +53,26 @@ Este paquete marca una herencia de objetos.
 	* Valoracion 
 	Es la estructura que va a recoger la clase Valoraciones . 
 
+* **Traductor**
+	* El programa incorpora un "pequeño" traductor a nivel de compilador.
+	* Para poder utilizarlo es necesario tener los archivos es.txt y us.txt metidos en la carpeta "src"
+	* Descripcion
+		Su funcionamiento es el de un comipilador , es un diccionario en el que en vez de recoger todas las palabras del lenguaje , coge ffrases predeterminadas que es 		lo que va a salir por pantalla.
+		No es que sea muy practico , pero cuanto más avance el proyecto , lo podremos hacer en linea.
+
+
+# Clases Importadas
+* **JOptionPane**
+	Esta biblioteca la hemos añadido para la parte inicial de la app , genera una ventana de opciones en la que le hemos puesto las condiciones de idioma 
+	esta devuelve el archivo de texto que hemos de leer para que el texto por consola salga en Español o en Ingles
+* **LOCALDATE**
+	Esta biblioteca nos permite generar fechas , controlar tiempos, modificar fechas....
+	Para esto hemos añadido bibliotecas de tiempo
+
+		*	**LocalDate -> genera fechas
+		*	**MONTH -> controla el tiempo en meses
+		*	**DAY -> controla el tiempo en dias
+		*	**ChronoUnit -> Biblioteca general de expresiones de tiempo
 # AVANCES 
 Esta app estaria en la fase 0 o 1  de su desarrollo.
 Se prevé añadir los siguientes aspectos:
