@@ -1,4 +1,7 @@
 package hotel;
+
+import traductor.Traductor;
+
 /**
  * @author Smolpeceresd
  *
@@ -27,37 +30,38 @@ public class Piscina {
 
 	//Metodos
 
-	public String toString() {
+	public String toString(Traductor diccionario) {
 		String deVuelta="";
 
-		deVuelta+=("\n* Dimensiones: "+this.getDimensiones()[0]+" x "+ this.getDimensiones()[1]);
+		deVuelta+=("\n* "+diccionario.getTexto("DIMENSIONES_P_P")+this.getDimensiones()[0]+" x "+ this.getDimensiones()[1]);
 
 		if(this.isClimatizada()==true) {
-			deVuelta+=("\n\t* Climatizada: Sí");
-		}else{ deVuelta+=("\n\t* CLimatizada: No");}
+			deVuelta+=("\n\t* "+diccionario.getTexto("CLIMATIZADA_P_P")+diccionario.getTexto("Afirmacion"));
+		}else{ deVuelta+=("\n\t*"+diccionario.getTexto("CLIMATIZADA_P_P")+diccionario.getTexto("Afirmacion"));}
 
 		if(this.isServicioToallas()==true) {
-			deVuelta+=("\n\t* Servicio de toallas: Sí");
+			deVuelta+=("\n\t*"+diccionario.getTexto("TOALLA_P_P")+diccionario.getTexto("Afirmacion"));
 		}else{
-			deVuelta+=("\n\t* Servicio de Toallas: No");
+			deVuelta+=("\n\t*"+diccionario.getTexto("TOALLAS_P_P")+diccionario.getTexto("Negacion"));
 		}
 
 		if(this.isBarPiscina()==true) {
-			deVuelta+=("\n\t* Bar en la piscina: Sí");
+			deVuelta+=("\n\t*"+diccionario.getTexto("BAR_P_P")+diccionario.getTexto("Afirmacion"));
 		}else {
-			deVuelta+=("\n\t* Bar en la piscina: No");
+			deVuelta+=("\n\t*"+diccionario.getTexto("BAR_P_P")+diccionario.getTexto("Negacion"));
 		}
 		return deVuelta;
 	}
 	
-	public String toStringSuit() {
+	public String toStringSuit(Traductor diccionario) {
 		String deVuelta="";
 
-		deVuelta+=("\n\n* Dimensiones: "+this.getDimensiones()[0]+" x "+ this.getDimensiones()[1]);
+		deVuelta+=("\n\n*"+diccionario.getTexto("DIMENSIONES_P_P") +this.getDimensiones()[0]+" x "+ this.getDimensiones()[1]);
 
 		if(this.isClimatizada()==true) {
-			deVuelta+=("\n\t* Climatizada: Sí");
-		}else{ deVuelta+=("\n\t* Climatizada: No");}
+			deVuelta+=("\n\t* "+diccionario.getTexto("CLIMATIZADA_P_P")+diccionario.getTexto("Afirmacion"));
+		}else{ deVuelta+=("\n\t*"+diccionario.getTexto("CLIMATIZADA_P_P")+diccionario.getTexto("Afirmacion"));}
+
 		
 		return deVuelta;
 	}
