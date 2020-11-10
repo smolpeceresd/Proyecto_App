@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Vector;
 
 import hotel.Reserva;
+import traductor.Traductor;
 
 /**
  * @author Smolpeceresd
@@ -92,22 +93,22 @@ public class Usuario {
 		this.getReservas().add(a);
 	}
 
-	public int eligeReserva() {
+	public int eligeReserva(Traductor diccionario) {
 		for(int i=0;i<this.getReservas().size();i++) {
-			System.out.println("\nReserva numero: "+(i+1)+"\n"+this.getReservas().get(i).toString());
+			System.out.println("\n"+diccionario.getTexto("N_RESERVA")+(i+1)+"\n"+this.getReservas().get(i).toString());
 		}
 		@SuppressWarnings("resource")
 		Scanner sc= new Scanner(System.in);
-		System.out.print("\nEleccion: ");
+		System.out.print("\n"+diccionario.getTexto("Eleccion"));
 		int eleccion=sc.nextInt();
 		while(eleccion<=0 && eleccion>=this.getReservas().size()) {
-			System.out.print("\nLa seleccion esta fuera de rango , intentalo otra vez.\nEleccion: ");
+			System.out.print("\n"+diccionario.getTexto("RANGO_OUT")+"\n"+diccionario.getTexto("Eleccion"));
 		}
 		return eleccion-1;
 	}
-	public String verReservas() {
+	public String verReservas(Traductor diccionario) {
 		if(this.getReservas().size()==0) {
-			return "\nNo has hecho ninguna reserva todavia\n";
+			return "\n"+diccionario.getTexto("EMPTY")+"\n";
 		}
 		String deVuelta="";
 		for(int i=0;i<this.getReservas().size();i++) {
