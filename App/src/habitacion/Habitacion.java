@@ -1,4 +1,7 @@
 package habitacion;
+
+import traductor.Traductor;
+
 /**
  * @author Smolpeceresd
  *
@@ -35,13 +38,13 @@ public class Habitacion {
 	// metodos
 
 	///////////////////////////////////////////////////
-	public String toString() {
+	public String toString(Traductor diccionario) {
 		String deVuelta="";
 		if(this.getDescripcion()!=null) {
 			deVuelta+="Descripcion: "+this.getDescripcion();
 		}
-		deVuelta+="\nEl numero de camas que tiene esta habitacion: "+this.getNumeroCamas();
-		deVuelta+="\nEsta habitacion contiene:";
+		deVuelta+="\n"+diccionario.getTexto("N_CAMAS")+this.getNumeroCamas();
+		deVuelta+="\n";
 		if(this.isTv()==true) {
 			deVuelta+="\n\t*TV";
 		}
@@ -49,26 +52,26 @@ public class Habitacion {
 			deVuelta+="\n\t*Wifi";
 		}
 		if(this.isMinibar()==true) {
-			deVuelta+="\n\t*Mini bar";
+			deVuelta+="\n\t*"+diccionario.getTexto("MINI_BAR_H_H");
 		}
 		if(this.isCajaFuerte()==true) {
-			deVuelta+="\n\t*Caja fuerte";
+			deVuelta+="\n\t*"+diccionario.getTexto("CAJA_FUERTE_H_H");
 		}
 		if(this.isAdaptadaMinusvalidos()==true) {
-			deVuelta+="\n\t*Esta habitacion esta adaptada para minusvalidos";
+			deVuelta+="\n\t*"+diccionario.getTexto("MV_H_H");
 		}
-		deVuelta+="\nPrecio de la habitacion: "+this.getPrecio()+"€";
-		deVuelta+="\nEl numero de habitaciones que hay como esta son: "+this.getNumeroTipo();
+		deVuelta+="\n"+diccionario.getTexto("PRECIO_H_H")+this.getPrecio()+"€";
+		deVuelta+="\n"+diccionario.getTexto("N_H_H")+this.getNumeroTipo();
 		return deVuelta;
 
 	}
-	public String toStringUsuario() {
+	public String toStringUsuario(Traductor diccionario) {
 		String deVuelta="";
 		if(this.getDescripcion()!=null) {
-			deVuelta+="Descripcion: "+this.getDescripcion();
+			deVuelta+=diccionario.getTexto("DESCRIPTION")+this.getDescripcion();
 		}
-		deVuelta+="\nEl numero de camas que tiene esta habitacion: "+this.getNumeroCamas();
-		deVuelta+="\nEsta habitacion contiene:";
+		deVuelta+="\n"+diccionario.getTexto("N_CAMAS")+this.getNumeroCamas();
+		deVuelta+="\n"+diccionario.getTexto("ENCABEZADO");
 		if(this.isTv()==true) {
 			deVuelta+="\n\t*TV";
 		}
@@ -76,15 +79,15 @@ public class Habitacion {
 			deVuelta+="\n\t*Wifi";
 		}
 		if(this.isMinibar()==true) {
-			deVuelta+="\n\t*Mini bar";
+			deVuelta+="\n\t*"+diccionario.getTexto("MINI_BAR_H_H");
 		}
 		if(this.isCajaFuerte()==true) {
-			deVuelta+="\n\t*Caja fuerte";
+			deVuelta+="\n\t*"+diccionario.getTexto("CAJA_FUERTE_H_H");
 		}
 		if(this.isAdaptadaMinusvalidos()==true) {
-			deVuelta+="\n\t*Esta habitacion esta adaptada para minusvalidos";
+			deVuelta+="\n\t*"+diccionario.getTexto("MV_H_H");
 		}
-		deVuelta+="\nPrecio de la habitacion: "+this.getPrecio()+"€";
+		deVuelta+="\n"+diccionario.getTexto("PRECIO_H_H")+this.getPrecio()+"€";
 		return deVuelta;
 
 	}
