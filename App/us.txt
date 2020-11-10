@@ -1,0 +1,246 @@
+//esta pensado Comando - Texto
+
+///////////////////PRINCIPAL
+
+//BASICAS
+
+Eleccion	Choice: 
+Afirmacion	1 Yes
+Negacion	2 No
+TODO	!!!ALL READY
+ERROR	Something has gone wrong
+ERROR_VALIDO	Please enter a valid information
+
+GRACIAS	THANK YOU FOR YOUR VISIT
+SEE_YOU	WE HOPE TO SEE YOU SOON
+
+////// MENUS
+
+///INICIO
+
+Bienvenida	Welcome to \ "company \"
+Pregunta1	How are you going to use the app?
+Respuesta_menu	1 As a user
+Respuesta2_menu	2 As a company
+Respuesta3_menu	3 To go out
+
+/////////////////////MENU_HOTEL
+Modificar	What do you want to modify?
+M_H_1	1 Number of rooms
+M_H_2	2 Hotel's name
+M_H_3	3 Hotel's password
+M_H_4	4 Hotel's phone
+M_H_5	5 The address of the hotel
+M_H_6	6 Parking
+M_H_7	7 Acceptance of children
+M_H_8	8 The number of stars
+M_H_9	9 The hotel's swimming pool
+M_H_10	10 The hotel's restaurant
+M_H_11	11 Pet acceptance
+M_H_12	12 To see the ratings
+M_H_13	13 To get out
+
+//////////////////////MENU_PICINA
+
+Modificar_P	What are we going to change from the pool?
+M_P_1	1 Dimensions
+M_P_2	2 Air conditioning
+M_P_3	3 Towel service
+M_P_4	4 The Bar
+M_P_5	5 To get out
+
+
+///////////////////MENU_RESTAURANTE
+MODIFICAR_R	What are we going to change?
+M_R_1	1 The description
+M_R_2	2 Breakfast service
+M_R_3	3 Lunch service
+M_R_4	4 Dinner service
+M_R_5	5 To get out
+
+
+////////////////MENU USUARIO
+PREGUNTA_U	What do you want to do?
+M_U_1	1 To see your bookings
+M_U_2	2 To make a new booking
+M_U_3	3 To get out
+
+//Funciones
+
+Registrado	Are you registered?
+DESCRIPCION	Do you want to add a description?
+Descripcion_	Description: 
+Dime	Tell me 
+PRECIO	Tell me the price of this room: 
+
+/////////////PISCINA
+PREGUNTA_P	Does your hotel have a swimming pool?
+PISCINA_p	Does this room have a pool?
+DIMEN_1	Dime how much the first size of the pool measures:
+DIMEN_2	Dime how much the second size of the pool measures:
+CLIMATIZADA	Is the pool heated?
+TOALLAS	Does the pool have towel service?
+BAR	Does the pool have a bar?
+ELIMINAR_P	Do you want to delete your pool?
+
+
+///////////RESTAURANTE
+PREGUNTA_R	Does your hotel have a restaurant?
+MESAS	the number of services in your restaurant
+DEYASUNO	Does the restaurant have breakfast service?
+COMIDA	Does the restaurant have lunch service?
+CENA	Does the restaurant have dinner service?
+ELIMINAR_R	Do you want to delete your restaurant?
+
+/////////////////GUARDERIA
+
+MASCOTAS	Is your hotel pet-friendly?
+GUARDERIA	Does your hotel have pet day care? 
+ELIMINAR_R	Do you want to eliminate your nursery?
+
+///////////////////////////USUARIO
+
+NOMBRE	Tell me your name, remember that this one can not be changed: 
+EDAD	Tell me your age, remember that it cannot be changed, and you must be +18:  
+F_EDAD	You must be >=18
+F_2_EDAD	Tell me your age: 
+DNI	DIME TU DNI: 
+
+///REGISTRO_USUARIO
+
+LETS_GO	Let's create your profile
+TARJETA	Tell me the combination of your credit card
+CORREO	Tell me your mail 
+TELEFONO	Tell me your contact phone
+U_CONTRASEÑA	We're going to search you.  Tell us a password so you can access your data
+END_U	 That's what your profile would look like.
+////FECHAS
+AÑO_1	the year you want to book from 
+MES_1	the month you want to book 
+DIA_1	the day you want to make the book
+AÑO_2	the year you want to finish the book from 
+MES_2	the month you want to end the book
+DIA_2	the day you want to finish the book
+
+///////////////////////////////////HOTEL
+
+//Registro
+
+REGISTRO_H	Is your hotel registered?
+LETS_GO_H	We are going to make a template of your Hotel
+NOMBRE_H_R	Tell me the name of your hotel
+NOMBRE2_H	Tell me the name of the hotel, this is the one you will use to register
+CONTRASEÑA_H_1	Tell me your password
+MUESTREO_H		This is your profile
+///////CREAR
+HABITACIONES	number of rooms
+NOMBRE_H	Tell me the name of the hotel, this one you will use to register:
+CONTRASEÑA_H	Tell us a password so you can access your data
+TELEFONO_H	Tell me the phone number of your hotel
+DIRECCION_H	Tell me the hotel address
+ESTRELLAS	number of stars of your hotel
+
+///HABITACIONES
+
+HABITACIONES	We are going to search the different rooms you have
+SUIT	Do you have Suits in your hotel?
+C_SUIT	Tell me how many different suits you have: 
+CAMAS	the number of beds in the room
+TV	is it have a TV?
+WIFI	is it have a wifi?
+MINIBAR	is it have a minibar?
+CAJA_FUERTE	is it have a safe box?
+MV	Is the room adapted for the disabled?
+JACUZZI	is it have a Jacuzzi?
+BARRA	is it have a personal bar in the room?
+CANTIDAD_HABIT	How many rooms like this are there?
+ESTANDAR_H	We go with the most standard rooms
+C_ESTAND	How many different rooms do you have?
+ESTAND_ITE	Let's go with the Standard room number
+ITERACION	Let's go with the suit number
+
+////////////////////////MAIN
+NOMBRE_US	Tell me your username
+R_CONTRASEÑA	Tell me your password
+MODIFICAR_RESERVA	Do you want to modify any?
+ELIMINAR	Do you want to delete it?
+RESERVA	Do you want to make a reservation?
+KEEP_ON	Do you want to keep on this hotel?
+ERROR_REGISTRO	---- Something has gone wrong The username or password has been entered wrong ---
+
+
+
+
+////////////////////////////////CLASES/////////////////////////////////////////////////////////////////////77
+//////////////DB
+LISTA	These are the names of the registered hotels
+SELECT_LISTA	Select the number to access your information
+ERROR_DB	Decision does not validate. Try again Choice:
+SELECT_HAB	Select the room you want to reserve
+ROOM	Room: 
+
+/////////////HABITACION & SUIT
+DESCRIPTION	Description: 
+N_CAMAS	The number of beds that this room has: 
+ENCABEZADO	This room contains: 
+MINI_BAR_H_H	Mini bar
+CAJA_FUERTE_H_H	safe box
+MV_H_H	This room is adapted for the disabled
+PRECIO_H_H	Price of the room
+N_H_H	The number of rooms like this are:
+ENCABEZADO_SUIT	This room also has service of: 
+PISCINA_H_H	Pool
+JACUZZI_H_H	Jacuzzi
+BARRA_H_H	Personal bar counter
+
+////////PISCINA
+DIMENSIONES_P_P	Dimensions: 
+CLIMATIZADA_P_P	Climatizada: 
+TOALLAS_P_P	Towel service:
+BAR_P_P	Bar in the pool: 
+
+////MASCOTAS
+GUARDERIA_M	Our hotel allows pets, but does not take care of them
+GUARDERIA_M_N	Our hotel has a daycare center where the dogs can waste the day
+//////HOTEL
+DEF_Hot	The Hotel 
+DEF_Hot_2	 get
+rooms	rooms
+ESTRELLAS_Hot	Number if stars
+TEF_Hot	Phone: 
+DIR_Hot	Direction: C\
+APARCAMIENTO	Has parking
+NIÑOS	Accept children
+PISCINA_Hot	Pool:
+RESTAURANTE_Hot	Restaurant:
+MASCOTAS_Hot	Pets:
+HABITACIONES_Hot	These are the rooms that the hotel has
+ESTANDAR_TYPE_	Type of room: Standard
+ROOM_TYPE	Type of room 
+HOTEL_ROOMS	The hotel rooms:
+HOT_NUM_ROOM	Room number
+NEW_room	Tell me the new room
+RANGO_OUT	Selection out of range, try again
+
+////////RESERVA
+USUARIO_	User
+HOTEL_	Hotel
+RESERVADA	Reserved room:
+DATOS_RESERVA	----------------BOOKING DATA----------------
+EMISION	Date of issue: 
+ENTRADA	Entry date: 
+SALIDA	Departure date: 
+PRECIO_RESERV	Reservation price: 
+TIPO	Type 
+EMPTY	You haven't made a reservation yet
+
+//////////RESTAURANTE
+N_RESERVA	Reservation number:
+N_MESAS	Number of Tables:
+SERVICIOS_	Services:
+DESAYUNO	Breakfast
+COMIDA	Lunch
+CENA	Dinner
+
+///valoraciones
+TIME	No one has rated the hotel at the moment

@@ -1,0 +1,246 @@
+//esta pensado Comando - Texto
+
+///////////////////PRINCIPAL
+
+//BASICAS
+
+Eleccion	Eleccion: 
+Afirmacion	1 Sí
+Negacion	2 No
+TODO	!!!TODO LISTO¡¡¡
+ERROR	Algo ha ido mal
+ERROR_VALIDO	Por favor introduce un dato valido
+
+GRACIAS	GRACIAS POR TU VISITA
+SEE_YOU	ESPERAMOS VOLVER A VERTE PRONTO
+
+////// MENUS
+
+///INICIO
+
+Bienvenida	Bienvenido a \"empresa\"
+Pregunta1	¿Como vas a usar la app?
+Respuesta_menu	1 Como usuario
+Respuesta2_menu	2 Como empresa
+Respuesta3_menu	3 Para salir
+
+/////////////////////MENU_HOTEL
+Modificar	¿Que desea modificar?
+M_H_1	1 Numero de Habitaciones
+M_H_2	2 Nombre del hotel
+M_H_3	3 La contraseña del hotel
+M_H_4	4 El telefono del hotel
+M_H_5	5 La direccion del hotel
+M_H_6	6 El aparcamiento
+M_H_7	7 Aceptación de niños
+M_H_8	8 El numero de estrellas
+M_H_9	9 La piscina del hotel
+M_H_10	10 El restaurante
+M_H_11	11 La aceptación de las mascotas
+M_H_12	12 Para ver las valoraciones
+M_H_13	13 Para salir
+
+//////////////////////MENU_PICINA
+
+Modificar_P	¿Que vamos a modificar de la pisicina?
+M_P_1	1 Las dimensiones
+M_P_2	2 La climatizacion
+M_P_3	3 El servicio de toallas
+M_P_4	4 La barra de Bar
+M_P_5	5 Para salir
+
+
+///////////////////MENU_RESTAURANTE
+MODIFICAR_R	¿Que vamos a modificar?
+M_R_1	1 La descripción
+M_R_2	2 El servico de desayuno
+M_R_3	3 El servicio de comida
+M_R_4	4 El servicio de Cena
+M_R_5	5 Para salir
+
+
+////////////////MENU USUARIO
+PREGUNTA_U	¿Que quieres hacer?
+M_U_1	1 Para ver tus reservas
+M_U_2	2 Para hacer una nueva reserva
+M_U_3	3 para salir
+
+//Funciones
+
+Registrado	¿Estas registrado?
+DESCRIPCION	¿Quieres añadir una descripción?
+Descripcion_	Descripción: 
+Dime	Dime 
+PRECIO	Dime el precio que tiene esta habitacion: 
+
+/////////////PISCINA
+PREGUNTA_P	¿Tu hotel tiene piscina?
+PISCINA_p	¿Esta habitacion tiene piscina?
+DIMEN_1	Dime cuanto mide la primera dimension de la piscina: 
+DIMEN_2	Dime cuanto mide la segunda dimension de la piscina: 
+CLIMATIZADA	¿La pisicina esta climatizada?
+TOALLAS	¿La pisicina tiene servicio de toallas?
+BAR	¿La pisicina tiene bar?
+ELIMINAR_P	¿Quieres eliminar tu piscina?
+
+
+///////////RESTAURANTE
+PREGUNTA_R	¿Tu hotel tiene restaurante?
+MESAS	la cantidad de mesas de tu restaurante
+DEYASUNO	¿El restaurante tiene servicio de desayuno?
+COMIDA	¿El restaurante tiene servicio de comida?
+CENA	¿El restaurante tiene servicio de cena?
+ELIMINAR_R	¿Quieres eliminar tu restaurante?
+
+/////////////////GUARDERIA
+
+MASCOTAS	¿Tu hotel admite mascotas?
+GUARDERIA	¿Tu hotel cuenta con guarderia para mascotas?
+ELIMINAR_R	¿Quieres eliminar tu guarderia?
+
+///////////////////////////USUARIO
+
+NOMBRE	Dime tu nombre, recuerda que este no se podra cambiar: 
+EDAD	Dime tu edad , recuerda que no se podrá cambiar, y has de ser +18: 
+F_EDAD	Tienes que ser >=18
+F_2_EDAD	Dime tu edad: 
+DNI	DIME TU DNI: 
+
+///REGISTRO_USUARIO
+
+LETS_GO	Vamos a crear tu perfil
+TARJETA	Dime la combinacion de tu tarjeta
+CORREO	Dime tu correo
+TELEFONO	Dime tu telefono de contacto
+U_CONTRASEÑA	Te vamos a registrar.\nDinos una contraseña para que puedas acceder a tus datos
+END_U	Así quedaría tu perfil
+////FECHAS
+AÑO_1	el año en el que quieres hacer la reserva a partir del 
+MES_1	el mes en el que quieres hacer la reserva
+DIA_1	el dia en el que quieres hacer la reserva
+AÑO_2	el año en el que quieres finalizar la reserva a partir del 
+MES_2	el mes en el que quieres finalizar la reserva
+DIA_2	el dia en el que quieres finalizar la reserva
+
+///////////////////////////////////HOTEL
+
+//Registro
+
+REGISTRO_H	¿Su hotel esta registrado?
+LETS_GO_H	Vamos a hacer la plantilla de tu Hotel
+NOMBRE_H_R	Dime el nombre de tu hotel
+NOMBRE2_H	Dime el nombre del hotel, este es el que usaras para registrarte
+CONTRASEÑA_H_1	Dime tu contraseña
+MUESTREO_H		Este es tu perfil
+///////CREAR
+HABITACIONES	numero de habitaciones
+NOMBRE_H	Dime el nombre del hotel, este es el que usaras para registrarte:
+CONTRASEÑA_H	Dinos una contraseña para que puedas acceder a tus datos
+TELEFONO_H	Dime el numero de telefono de tu hotel
+DIRECCION_H	Dime la direccion del hotel
+ESTRELLAS	numero de estrellas de tu hotel
+
+///HABITACIONES
+
+HABITACIONES	Vamos a registrar las diferentes habitaciones que tienes
+SUIT	¿Tienes Suits en tu hotel?
+C_SUIT	Dime cuantas suits diferentes tienes: 
+CAMAS	el numero de camas que tiene la habitacion
+TV	¿Tiene TV?
+WIFI	¿Tiene wifi?
+MINIBAR	¿Tiene minibar?
+CAJA_FUERTE	¿Tiene Caja fuerte?
+MV	¿Esta adaptada para minusvalidos?
+JACUZZI	¿Tiene Jacuzzi?
+BARRA	¿Tiene una barra de bar personal?
+CANTIDAD_HABIT	¿Cuntas habitaciones como esta hay?
+ESTANDAR_H	Vamos con las habitaciones mas estandar
+C_ESTAND	¿Cuantas habitaciones diferentes tienes?
+ESTAND_ITE	Vamos con la habitacion Estandar numero 
+ITERACION	Vamos con la suit numero
+
+////////////////////////MAIN
+NOMBRE_US	Dime tu nombre de usuario
+R_CONTRASEÑA	Dime tu contraseña
+MODIFICAR_RESERVA	¿Deseas modificar alguna?
+ELIMINAR	¿Deseas eliminarla?
+RESERVA	¿Deseas hacer una reserva?
+KEEP_ON	¿Desea continuar en este hotel?
+ERROR_REGISTRO	----Algo ha ido mal\nEl nombre de usuario o la contraseña ha sido mal introducido---
+
+
+
+
+////////////////////////////////CLASES/////////////////////////////////////////////////////////////////////77
+//////////////DB
+LISTA	Estos son los nombres de los hoteles registrados
+SELECT_LISTA	Selecciona el numero para acceder a su informacion
+ERROR_DB	Decision no valida. Prueba otra vez\nEleccion: 
+SELECT_HAB	Selecciona la habitacion que quieres reservar
+ROOM	Habitacion: 
+
+/////////////HABITACION & SUIT
+DESCRIPTION	Descripcion: 
+N_CAMAS	El numero de camas que tiene esta habitacion: 
+ENCABEZADO	Esta habitacion contiene:
+MINI_BAR_H_H	Mini bar
+CAJA_FUERTE_H_H	Caja fuerte
+MV_H_H	Esta habitacion esta adaptada para minusvalidos
+PRECIO_H_H	Precio de la habitacion
+N_H_H	El numero de habitaciones que hay como esta son: 
+ENCABEZADO_SUIT	Esta habitacion, también cuenta con servicio de:
+PISCINA_H_H	Piscina
+JACUZZI_H_H	Jacuzzi
+BARRA_H_H	Barra de bar personal
+
+////////PISCINA
+DIMENSIONES_P_P	Dimensiones: 
+CLIMATIZADA_P_P	Climatizada: 
+TOALLAS_P_P	Servicio de toallas: 
+BAR_P_P	Bar en la piscina: 
+
+////MASCOTAS
+GUARDERIA_M	Nuestro hotel permite mascotas , pero no se hace cargo de ellas
+GUARDERIA_M_N	Nuestro hotel cuenta con un centro de guarderia donde los perros pueden pasar el dia
+
+//////HOTEL
+DEF_Hot	El Hotel 
+DEF_Hot_2	 cuenta con 
+rooms	habitaciones
+ESTRELLAS_Hot	Numero de estrellas: 
+TEF_Hot	Telefono: 
+DIR_Hot	Direccion: C\
+APARCAMIENTO	Tiene aparcamiento
+NIÑOS	Acepta niños
+PISCINA_Hot	Piscina:
+RESTAURANTE_Hot	Restaurante:
+MASCOTAS_Hot	Mascotas:
+HABITACIONES_Hot	Estas son las habitaciones que tiene el hotel
+ESTANDAR_TYPE_	Tipo de habitacion: Estandar
+ROOM_TYPE	Tipo de habitacion: 
+HOTEL_ROOMS	Las Habitaciones del hotel:
+HOT_NUM_ROOM	Habitacion numero 
+NEW_room	Dime la nueva habitacion
+RANGO_OUT	Seleccion fuera de rango.Prueba otra vez
+
+////////RESERVA
+USUARIO_	Usuario
+HOTEL_	Hotel
+RESERVADA	Habitacion reservada: 
+DATOS_RESERVA	----------------DATOS DE LA RESERVA----------------
+EMISION	Fecha de Emision: 
+ENTRADA	Fecha de Entrada: 
+SALIDA	Fecha de Salida: 
+PRECIO_RESERV	Precio de la reserva: 
+TIPO	Tipo 
+EMPTY	No has hecho ninguna reserva todavia
+//////////RESTAURANTE
+N_RESERVA	Reserva numero: 
+N_MESAS	Numero de Mesas: 
+SERVICIOS_	Servicios:
+DESAYUNO	Desayuno
+COMIDA	Comida
+CENA	Cena
+
+///valoraciones
+TIME	De momento nadie ha valorado el hotel
