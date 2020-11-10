@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.Vector;
 
 import habitacion.Habitacion;
+import traductor.Traductor;
 import usuario.Usuario;
 /**
  * @author Smolpeceresd
@@ -33,13 +34,14 @@ public class Hotel {
 	//constructores
 
 	public Hotel(String nombreHotel, String telefono, String direccion, boolean aparcamiento,
-			boolean niños,String contraseña) {
+			boolean niños,String contraseña,int numEstrellas) {
 		this.nombreHotel = nombreHotel;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.aparcamiento = aparcamiento;
 		this.niños = niños;
 		this.contraseñaHotel=contraseña;
+		this.numeroEstrellas=numEstrellas;
 	}
 
 
@@ -219,52 +221,52 @@ public class Hotel {
 		this.getReservas().add(a);
 	}
 
-	@Override
-	public String toString() {
+
+	public String toString(Traductor diccionario) {
 		String deVuelta="";
-		deVuelta+=("El Hotel "+ this.getNombreHotel() +" cuenta con "+ (this.getNumeroHabitaciones())+" habitaciones");
-		deVuelta+=("\n*Numero de estrellas: "+this.estrellas(this.getNumeroEstrellas()));
-		deVuelta+=("\n*Telefono: "+this.getTelefono());
-		deVuelta+=("\n*Direccion: C\\"+this.getDireccion());
+		deVuelta+=(diccionario.getTexto("DEF_Hot")+ this.getNombreHotel() +diccionario.getTexto("DEF_Hot_2")+ (this.getNumeroHabitaciones())+diccionario.getTexto("rooms"));
+		deVuelta+=("\n*"+diccionario.getTexto("ESTRELLAS_Hot")+this.estrellas(this.getNumeroEstrellas()));
+		deVuelta+=("\n*"+diccionario.getTexto("TEF_Hot")+this.getTelefono());
+		deVuelta+=("\n*"+diccionario.getTexto("DIR_Hot")+this.getDireccion());
 
 		if(this.isAparcamiento()==true) {
-			deVuelta+=("\n*Tiene aparcamiento");
+			deVuelta+=("\n*"+diccionario.getTexto("APARCAMIENTO"));
 		}
 		if(this.isNiños()==true) {
-			deVuelta+=("\n*Acepta niños");
+			deVuelta+=("\n*"+diccionario.getTexto("NIÑOS"));
 		}
 		if(this.getPisci()!=null) {
-			deVuelta+=("\nPiscina:\n"+ this.getPisci().toString());
+			deVuelta+=("\n\n"+diccionario.getTexto("PISCINA_Hot")+ this.getPisci().toString(diccionario));
 		}
 		if(this.getRestaurante()!=null) {
-			deVuelta+=("\nRestaurante:\n"+this.getRestaurante().toString());
+			deVuelta+=("\n\n"+diccionario.getTexto("RESTAURANTE_Hot")+this.getRestaurante().toString(diccionario));
 		}
 		if(this.getMascotas()!=null) {
-			deVuelta+=("\nMascotas:\n"+this.getMascotas().toString());
+			deVuelta+=("\n\n"+diccionario.getTexto("MASCOTAS_Hot")+this.getMascotas().toString(diccionario));
 		}
-		deVuelta+="\n\nEstas son las habitaciones que tiene el hotel";
+		deVuelta+="\n\n";
 
 		for(Habitacion elem:this.getRooms()) {
 
 			if(elem.getClass().getSimpleName().equals("Habitacion")==true) {
-				deVuelta+="\n\n\n Tipo de habitacion: Estandar\n"+elem.toString();
+				deVuelta+="\n\n\n "+diccionario.getTexto("ESTANDAR_TYPE_")+"\n"+elem.toString(diccionario);
 			}else
-				deVuelta+="\n\n\n Tipo de habitacion: "+elem.getClass().getSimpleName()+"\n"+elem.toString();
+				deVuelta+="\n\n\n "+diccionario.getTexto("ROOM_TYPE")+elem.getClass().getSimpleName()+"\n"+elem.toString(diccionario);
 		}
 		return deVuelta;
 	}
 
-	public Habitacion escogeHabitacion() {
-		System.out.println("\nLas Habitaciones del hotel:\n");
+	public Habitacion escogeHabitacion(Traductor diccionario) {
+		System.out.println("\n"+diccionario.getTexto("HOTEL_ROOMS")+"\n");
 		for(int i=0;i<this.getRooms().size();i++) {
-			System.out.println("\tHabitacion numero "+(i+1)+":\n"+this.getRooms().get(i).toStringUsuario());
+			System.out.println("\t"+diccionario.getTexto("HOT_NUM_ROOM")+(i+1)+":\n"+this.getRooms().get(i).toStringUsuario(diccionario));
 		}
 		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
-		System.out.print("\n\nDime la nueva habitacion\nEleccion: ");
+		System.out.print("\n\n"+diccionario.getTexto("NEW_room"));
 		int eleccion=sc.nextInt();
 		while(eleccion<0 && eleccion>=this.getRooms().size()) {
-			System.out.print("Seleccion fuera de rango.Prueba otra vez\nEleccion: ");
+			System.out.print(diccionario.getTexto("RANGO_OUT")+"\n"+diccionario.getTexto("Eleccion"));
 		}
 		return this.getRooms().get(eleccion-1);
 	}
