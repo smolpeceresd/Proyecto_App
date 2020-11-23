@@ -3,12 +3,15 @@ En este repositorio vamos a ver una practica la cual trata de generar una aplica
 
 **AUTOR** 
 Santiago Molpeceres Diaz -> smolpeceresd
+<img src="https://user-images.githubusercontent.com/54994511/100009340-10e73480-2dcf-11eb-894d-7e2cd9764cb4.jpg" width="110" height="110">
+
 # Datos básicos 
 Este proyecto ha sido creado con las siguientes especificaciones:
 * Portatil :AsusZenBook.
 * Entorno de desarrollo: Eclipse2020.
 * Version jdk: jdk-15.0.1-Windows.
 * Version jre: jre.SE-14-Windows.
+* Test: JUnit15
 
 # APP
 Esta app ha sido diseñada para:
@@ -17,6 +20,9 @@ Esta app ha sido diseñada para:
 	* Los usuarios puedan hacer reservas en dichos hoteles.
 	
 # Estructura
+![DEFINITVO](https://user-images.githubusercontent.com/54994511/100010437-8f90a180-2dd0-11eb-8b07-196b93288d76.jpg)
+<img width="450" alt="BARRa" src="https://user-images.githubusercontent.com/54994511/100011286-cb783680-2dd1-11eb-920c-d25cbe6bbc6e.png">
+
 
 * **Paquete Principal** 
 
@@ -65,6 +71,7 @@ Este paquete marca una herencia de objetos.
 * **JOptionPane**
 	Esta biblioteca la hemos añadido para la parte inicial de la app , genera una ventana de opciones en la que le hemos puesto las condiciones de idioma 
 	esta devuelve el archivo de texto que hemos de leer para que el texto por consola salga en Español o en Ingles
+	<img width="999" alt="Jopne" src="https://user-images.githubusercontent.com/54994511/100010881-3c6b1e80-2dd1-11eb-8b3c-28d06ac058c1.png">
 * **LOCALDATE**
 	Esta biblioteca nos permite generar fechas , controlar tiempos, modificar fechas....
 	Para esto hemos añadido bibliotecas de tiempo
@@ -74,16 +81,12 @@ Este paquete marca una herencia de objetos.
 		*	**DAY -> controla el tiempo en dias
 		*	**ChronoUnit -> Biblioteca general de expresiones de tiempo
 # AVANCES 
-Esta app estaria en la fase 0 o 1  de su desarrollo.
+Esta app estaria en la fase 1 o 2  de su desarrollo.
 Se prevé añadir los siguientes aspectos:
 
 	* Excepción de errores
 
 	* Mejoras de funcionamiento
-
-	* Depuración de codigo
-
-	* Interface
 
 	* Importante!!-> Las valoraciones aun no estan añadidas en el main.
 	
