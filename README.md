@@ -9,9 +9,12 @@ Santiago Molpeceres Diaz -> smolpeceresd
 Este proyecto ha sido creado con las siguientes especificaciones:
 * Portatil :AsusZenBook.
 * Entorno de desarrollo: Eclipse2020.
+<img width="224" alt="Eclipse" src="https://user-images.githubusercontent.com/54994511/100012518-b2708500-2dd3-11eb-8d63-daf2db470c49.png">
+
 * Version jdk: jdk-15.0.1-Windows.
 * Version jre: jre.SE-14-Windows.
 * Test: JUnit15
+<img width="700" alt="JRE" src="https://user-images.githubusercontent.com/54994511/100012351-6ae9f900-2dd3-11eb-9307-047093894455.png">
 
 # APP
 Esta app ha sido diseñada para:
