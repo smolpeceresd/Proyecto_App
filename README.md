@@ -8,6 +8,9 @@ Santiago Molpeceres Diaz -> smolpeceresd
 # Datos básicos 
 Este proyecto ha sido creado con las siguientes especificaciones:
 * Portatil :AsusZenBook.
+
+![Portatil](https://user-images.githubusercontent.com/54994511/100013006-74c02c00-2dd4-11eb-9c2f-5c82e63fb015.jpg)
+
 * Entorno de desarrollo: Eclipse2020.
 <img width="224" alt="Eclipse" src="https://user-images.githubusercontent.com/54994511/100012518-b2708500-2dd3-11eb-8d63-daf2db470c49.png">
 
