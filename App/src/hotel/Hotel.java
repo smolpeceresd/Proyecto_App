@@ -7,13 +7,14 @@ import java.util.Scanner;
 import java.util.Vector;
 
 import habitacion.Habitacion;
+import principal.Extras;
 import traductor.Traductor;
 import usuario.Usuario;
 /**
  * @author Smolpeceresd
  *
  */
-public class Hotel {
+public class Hotel  implements Extras {
 	//Atributos
 	private int numeroHabitaciones=0;
 	private String nombreHotel;
@@ -23,6 +24,7 @@ public class Hotel {
 	private boolean aparcamiento;
 	private boolean niños;
 	private int numeroEstrellas;
+	private int descuento=0;
 	private Piscina pisci=null;
 	private Restaurante restaurante=null;
 	private Mascotas mascotas= null;
@@ -253,6 +255,8 @@ public class Hotel {
 			}else
 				deVuelta+="\n\n\n "+diccionario.getTexto("ROOM_TYPE")+elem.getClass().getSimpleName()+"\n"+elem.toString(diccionario);
 		}
+		
+		deVuelta+=(this.getDescuento()!=0)?("\n*"+diccionario.getTexto("Descuento")+this.getDescuento()+"%"):("\n*"+diccionario.getComando("No_Descuento"));
 		return deVuelta;
 	}
 
@@ -280,6 +284,16 @@ public class Hotel {
 				}
 			}
 		}
+	}
+
+
+	public int getDescuento() {
+		return descuento;
+	}
+
+
+	public void setDescuento(int descuento) {
+		this.descuento = Math.abs(descuento);
 	}
 
 }
