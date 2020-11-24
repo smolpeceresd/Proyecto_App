@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.Month;
 
-import database.DataBase;
+import dataBase.DataBase;
 import habitacion.Habitacion;
 import habitacion.Suit;
 import hotel.Hotel;
@@ -21,19 +21,21 @@ import usuario.Usuario;
  * @author Smolpeceresd
  *
  */
-public class Main {
+public class Main  {
 
 	public static String seleccionaIdioma() {
-		Object[] opciones = {"Español", "Ingles"};
+		Object[] opciones = {"Español", "English"};
 		int a=JOptionPane.showOptionDialog(null,"ESCOGE TU IDIOMA \n CHOOSE YOUR LANGUAGE",
 				"Swing", JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,
 				null, opciones,opciones[0]);
-		if(a==0) {
+		
+		return (a==0)?"es.txt":(a==1)?"us.txt":null;
+		/*if(a==0) {
 			return "es.txt";
 		}else if(a==1) {
 			return "us.txt";
 		}
-		return null;
+		return null;*/
 	}
 	public  static int menu(Traductor diccionario) {
 		int eleccion;
@@ -126,6 +128,7 @@ public class Main {
 						diccionario.getTexto("M_H_11")+"\n"+
 						diccionario.getTexto("M_H_12")+"\n"+
 						diccionario.getTexto("M_H_13")+"\n"+
+						diccionario.getTexto("M_H_14")+"\n"+
 						diccionario.getTexto("Eleccion"));
 		int decision=sc.nextInt();
 		return decision;
@@ -198,7 +201,7 @@ public class Main {
 
 		return restaurante;
 	}
-
+/// UNIFICAR 
 	public static boolean desayuno(Traductor diccionario) {
 		return decisiones(diccionario.getTexto("DESAYUNO"),diccionario);
 	}
@@ -415,7 +418,7 @@ public class Main {
 									datoString(diccionario.getTexto("U_CONTRASEÑA")),
 									dni(diccionario));
 					System.out.println("\n\n\n"+diccionario.getTexto("END_U")+"\n");
-					System.out.println(perfil.toString());
+					System.out.println(perfil.toString(diccionario));
 					data.añadeUsuario(perfil);
 					System.out.println("\n\n\n"+diccionario.getTexto("TODO")+"\n\n\n");
 				}
@@ -425,7 +428,7 @@ public class Main {
 					if(hotel!=-1) {//si estas registrado
 						System.out.println("\n\n"+diccionario.getTexto("MUESTREO_H")+"\n\n"+data.getVectorHoteles().get(hotel).toString(diccionario)+"\n\n");
 						int edicionMenu=menuHotelEdition(diccionario);
-						while(edicionMenu!=13) {
+						while(edicionMenu!=14) {
 							switch(edicionMenu) {
 							case 1:data.getVectorHoteles().get(hotel).setNumeroHabitaciones(cantidad(diccionario.getTexto("HABITACIONES"),diccionario));break;
 							case 2:data.getVectorHoteles().get(hotel).setNombreHotel(datoString(diccionario.getTexto("NOMBRE_H")));break;
@@ -450,7 +453,7 @@ public class Main {
 										case 5:System.out.println("\n\n"+diccionario.getTexto("TODO")+"\n");break;
 										default:System.out.println("\n\n"+diccionario.getTexto("ERROR")+"\n");
 										}
-										System.out.println("\n\n"+diccionario.getTexto("MUESTREO_H")+"\n\n"+data.getVectorHoteles().get(hotel).toString()+"\n\n");
+										System.out.println("\n\n"+diccionario.getTexto("MUESTREO_H")+"\n\n"+data.getVectorHoteles().get(hotel).toString(diccionario)+"\n\n");
 										edicionPiscina=menuPiscinaEdition(diccionario);
 									}
 								}else {
@@ -463,7 +466,7 @@ public class Main {
 								if(data.getVectorHoteles().get(hotel).getRestaurante()==null) {
 									data.getVectorHoteles().get(hotel).setRestaurante(restaurante(diccionario));
 								}else if(decisiones(diccionario.getTexto("ELIMINAR_R"),diccionario)==false){
-									System.out.println(data.getVectorHoteles().get(hotel).getRestaurante().toString());
+									System.out.println(data.getVectorHoteles().get(hotel).getRestaurante().toString(diccionario));
 									int edicionRestaurante=menuRestauranteEdition(diccionario);
 									while(edicionRestaurante!=5) {
 										switch(edicionRestaurante) {
@@ -493,7 +496,8 @@ public class Main {
 								}
 							}break;
 							case 12:System.out.println(data.getVectorHoteles().get(hotel).getValoraciones().toString(diccionario));break ;
-							case 13:System.out.println("\n\n"+diccionario.getTexto("TODO")+"\n");break;
+							case 13:data.getVectorHoteles().get(hotel).setDescuento(cantidad(diccionario.getTexto("DIME_DESCUENTO"),diccionario));
+							case 14:System.out.println("\n\n"+diccionario.getTexto("TODO")+"\n");break;
 							default:System.out.println("\n"+diccionario.getTexto("ERROR")+"\n");
 							}
 							System.out.println("\n\n---------------------------------------------------------------------------\n"
