@@ -87,7 +87,7 @@ ELIMINAR_P	Do you want to delete your pool?
 ///////////RESTAURANTE
 PREGUNTA_R	Does your hotel have a restaurant?
 MESAS	the number of services in your restaurant
-DEYASUNO	Does the restaurant have breakfast service?
+DESAYUNO	Does the restaurant have breakfast service?
 COMIDA	Does the restaurant have lunch service?
 CENA	Does the restaurant have dinner service?
 ELIMINAR_R	Do you want to delete your restaurant?
@@ -112,13 +112,13 @@ LETS_GO	Let's create your profile
 TARJETA	Tell me the combination of your credit card
 CORREO	Tell me your mail 
 TELEFONO	Tell me your contact phone
-U_CONTRASEÑA	We're going to search you.  Tell us a password so you can access your data
+U_CONTRASEÃ‘A	We're going to search you.  Tell us a password so you can access your data
 END_U	 That's what your profile would look like.
 ////FECHAS
-AÑO_1	the year you want to book from 
+AÃ‘O_1	the year you want to book from 
 MES_1	the month you want to book 
 DIA_1	the day you want to make the book
-AÑO_2	the year you want to finish the book from 
+AÃ‘O_2	the year you want to finish the book from 
 MES_2	the month you want to end the book
 DIA_2	the day you want to finish the book
 
@@ -130,12 +130,12 @@ REGISTRO_H	Is your hotel registered?
 LETS_GO_H	We are going to make a template of your Hotel
 NOMBRE_H_R	Tell me the name of your hotel
 NOMBRE2_H	Tell me the name of the hotel, this is the one you will use to register
-CONTRASEÑA_H_1	Tell me your password
+CONTRASEÃ‘A_H_1	Tell me your password
 MUESTREO_H		This is your profile
 ///////CREAR
 HABITACIONES	number of rooms
 NOMBRE_H	Tell me the name of the hotel, this one you will use to register:
-CONTRASEÑA_H	Tell us a password so you can access your data
+CONTRASEÃ‘A_H	Tell us a password so you can access your data
 TELEFONO_H	Tell me the phone number of your hotel
 DIRECCION_H	Tell me the hotel address
 ESTRELLAS	number of stars of your hotel
@@ -158,16 +158,17 @@ ESTANDAR_H	We go with the most standard rooms
 C_ESTAND	How many different rooms do you have?
 ESTAND_ITE	Let's go with the Standard room number
 ITERACION	Let's go with the suit number
-
+Descuento	This hotel has a discount of
+No_Descuento	This hotel has not discount
 ////////////////////////MAIN
 NOMBRE_US	Tell me your username
-R_CONTRASEÑA	Tell me your password
+R_CONTRASEÃ‘A	Tell me your password
 MODIFICAR_RESERVA	Do you want to modify any?
 ELIMINAR	Do you want to delete it?
 RESERVA	Do you want to make a reservation?
 KEEP_ON	Do you want to keep on this hotel?
 ERROR_REGISTRO	---- Something has gone wrong The username or password has been entered wrong ---
-
+DIME_DESCUENTO	Tell me the amount of the discount that you are going to apply, this will always be an absolute value:
 
 
 
@@ -210,7 +211,7 @@ ESTRELLAS_Hot	Number if stars
 TEF_Hot	Phone: 
 DIR_Hot	Direction: C\
 APARCAMIENTO	Has parking
-NIÑOS	Accept children
+NIÃ‘OS	Accept children
 PISCINA_Hot	Pool:
 RESTAURANTE_Hot	Restaurant:
 MASCOTAS_Hot	Pets:
@@ -238,9 +239,17 @@ EMPTY	You haven't made a reservation yet
 N_RESERVA	Reservation number:
 N_MESAS	Number of Tables:
 SERVICIOS_	Services:
-DESAYUNO	Breakfast
-COMIDA	Lunch
-CENA	Dinner
+DESAYUNO_	Breakfast
+COMIDA_	Lunch
+CENA_	Dinner
 
 ///valoraciones
 TIME	No one has rated the hotel at the moment
+
+///USUARIO
+NOMBRE_	Name: 
+EDAD_	Age: 
+CORREO_	Email: 
+TELEFONO_US	Phone: 
+DNI_US	DNI: 
+TARJETA_	Card: 
