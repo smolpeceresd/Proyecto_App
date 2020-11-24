@@ -5,16 +5,18 @@ import static java.time.temporal.ChronoUnit.DAYS;
 import java.time.LocalDate;
 
 import habitacion.Habitacion;
+import principal.Extras;
 import traductor.Traductor;
 import usuario.Usuario;
 
-public class Reserva {
+public class Reserva implements Extras  {
 	private Usuario usuario=null;
 	private Hotel hotel=null;
 	private Habitacion habitacion=null;
 	private LocalDate emisionReserva=LocalDate.now();
 	private LocalDate fechaEntrada;
 	private LocalDate fechaSalida;
+	private double precio;
 
 
 	public Reserva(Usuario usuario, Habitacion habitacion, LocalDate entrada, LocalDate salida) {// hotel
@@ -23,6 +25,7 @@ public class Reserva {
 		this.habitacion = habitacion;
 		this.fechaEntrada=entrada;
 		this.fechaSalida=salida;
+		this.precio=this.getHabitacion().getPrecio()*((double)DAYS.between(this.getFechaEntrada(), this.getFechaSalida()));
 
 	}
 
@@ -32,6 +35,7 @@ public class Reserva {
 		this.habitacion=habitacion;
 		this.fechaEntrada=entrada;
 		this.fechaSalida=salida;
+		this.precio=this.getHabitacion().getPrecio()*((double)DAYS.between(this.getFechaEntrada(), this.getFechaSalida()));
 	}
 
 	public String toString(Traductor diccionario) {
@@ -52,7 +56,7 @@ public class Reserva {
 				+ "*\t "+diccionario.getTexto("EMISION")+this.getEmisionReserva().getDayOfMonth()+"/"+emisionReserva.getMonthValue()+"/"+emisionReserva.getYear()
 				+"\n*\t "+diccionario.getTexto("ENTRADA")+this.getFechaEntrada().getDayOfMonth()+"/"+this.getFechaEntrada().getMonthValue()+"/"+this.getFechaEntrada().getYear()
 				+"\n*\t "+diccionario.getTexto("SALIDA")+this.getFechaSalida().getDayOfMonth()+"/"+this.getFechaSalida().getMonthValue()+"/"+this.getFechaSalida().getYear()
-				+"\n*\t "+diccionario.getTexto("PRECIO_RESERV")+ this.getHabitacion().getPrecio()*((double)DAYS.between(this.getFechaEntrada(), this.getFechaSalida()));
+				+"\n*\t "+diccionario.getTexto("PRECIO_RESERV")+(this.getPrecio()-(this.getPrecio()*(this.getHotel().getNumeroEstrellas()*Math.pow(10, -2))));
 				
 		return deVuelta;
 	}
@@ -87,6 +91,14 @@ public class Reserva {
 
 	public LocalDate getFechaSalida() {
 		return fechaSalida;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
 	}
 
 
