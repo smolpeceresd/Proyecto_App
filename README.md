@@ -38,7 +38,11 @@ Esta clase tiene 3 funciones generales que vamos a usar en todo el programa.
 	* datoString -> nos devolvera un dato de tipo String que dependerá de su parametro.
 	* cantidad -> nos devolvera un dato de tipo int.
 	* decisiones-> nos devolvera un booleano.
-Estas 3 funciones determinan todos los parametros de los constructores de todas las clases.
+Estas 3 funciones determinan todos los parametros de los constructores de todas las clases
+	
+**Extras**
+
+Estras va a ser nuestra interfaz que de momento solo va a sobre cargar el toString de las clases.
 
 * **Paquete hotel**
 Este paquete recoge todo lo que contiene el hotel.
@@ -88,6 +92,16 @@ Este paquete marca una herencia de objetos.
 		*	**ChronoUnit -> Biblioteca general de expresiones de tiempo
 # AVANCES 
 Esta app estaria en la fase 1 o 2  de su desarrollo.
+
+Siempre es importante revisar el codigo con frecuencia , sobre todo para garantizar que los puntos solicitados funcionen correctamente o si se pueden simplificar.
+El proceso de desarrrollo de esta app , se basa en una mejora continua en lan que a falta de algunos aspectos como los que vamos a comentar a continuacion, y se busca reducir el codigo lo máximo posible.
+La base de esta aplicacion es que se intenta no modificar nada desde las clases , todo se hace desde el main y sobre todo accediendo por posiciones a nuestros datos , lo que evita errores en las tranferencias de datos. 
+
+Para reducir el código y ver si estamos usando correctamente el código, hemos añadido " Sonar Lint " para nuestro entorno de desarrollo(Eclipse)  que proporciona sugerencias de mejora de codigo.
+
+![sonarlint-og-image](https://user-images.githubusercontent.com/54994511/100165165-dad2af00-2eb9-11eb-8250-e4ff5ceff490.png)
+
+
 Se prevé añadir los siguientes aspectos:
 
 	* Excepción de errores
