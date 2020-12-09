@@ -1,22 +1,27 @@
 package usuario;
 
+import java.security.MessageDigest;
 import java.util.Scanner;
 import java.util.Vector;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
 import hotel.Reserva;
+import Principal.Extras;
 import traductor.Traductor;
 
 /**
  * @author Smolpeceresd
  *
  */
-public class Usuario {
+public class Usuario implements Extras {
 	private int edad;
-	private String tarjeta;
-	private String correo;
-	private String telefono;
-	private String nombre;
-	private String contraseña;
+	private String tarjeta=null;
+	private String correo=null;
+	private String telefono=null;
+	private String nombre=null;
+	private byte[] contraseña=null;
 	private String dNI;
 	private Vector<Reserva> reservas=new Vector<Reserva>();
 
@@ -28,19 +33,18 @@ public class Usuario {
 		this.correo = correo;
 		this.telefono = telefono;
 		this.nombre = nombre;
-		this.contraseña = contraseña;
+		this.contraseña = encripta(contraseña);
 		this.dNI = dNI;
 	}
 
-
-	public String toString() {
+	public String toString(Traductor diccionario) {
 		return "Usuario: \n"+
-				"*Nombre: "+this.getNombre()+"\n"+
-				"*Edad: "+this.getEdad()+"\n"+
-				"*Correo: "+this.getCorreo()+"\n"+
-				"*Telefono: "+this.getTelefono()+"\n"+
-				"*DNI: "+this.getDNI()+"\n"+
-				"*Tarjeta: "+this.getTarjeta();
+				diccionario.getTexto("NOMBRE_")+this.getNombre()+"\n"+
+				diccionario.getTexto("EDAD_")+this.getEdad()+"\n"+
+				diccionario.getTexto("CORREO_")+this.getCorreo()+"\n"+
+				diccionario.getTexto("TELEFONO_US")+this.getTelefono()+"\n"+
+				diccionario.getTexto("DNI_US")+this.getDNI()+"\n"+
+				diccionario.getTexto("TARJETA_")+this.getTarjeta();
 	}
 
 
@@ -61,10 +65,10 @@ public class Usuario {
 
 	///////////////////////////////////////////////////
 	public String getContraseña() {
-		return contraseña;
+		return descomponer(this.contraseña);
 	}
 	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+		this.contraseña = encripta(contraseña);
 	}
 	///////////////////////////////////////////////////
 	public String getDNI() {
@@ -118,5 +122,54 @@ public class Usuario {
 	}
 	public void elimina(int posicion){
 		this.getReservas().remove(posicion);
+	}
+
+	///////////////////////////////////////////////////////////CIFRADO
+	public byte[] encripta(String contraseña) {
+		try {
+			return cifra(contraseña);
+		} catch (Exception e) {
+			System.out.println("La constraseña no es valida");
+		}
+		return null;
+	}
+
+	public String descomponer(byte[] contraseña) {
+		try {
+			return descifra(contraseña);
+		} catch (Exception e) {
+			System.out.println("Algo ha ido mal");
+		}
+		return null;
+	}
+
+	public  byte[] cifra(String sinCifrar) throws Exception {
+		final byte[] bytes = sinCifrar.getBytes("UTF-8");
+		final Cipher aes = obtieneCipher(true);
+		final byte[] cifrado = aes.doFinal(bytes);
+		return cifrado;
+	}
+
+	public  String descifra(byte[] cifrado) throws Exception {
+		final Cipher aes = obtieneCipher(false);
+		final byte[] bytes = aes.doFinal(cifrado);
+		final String sinCifrar = new String(bytes, "UTF-8");
+		return sinCifrar;
+	}
+
+	private  Cipher obtieneCipher(boolean paraCifrar) throws Exception {
+		final String frase = "";
+		final MessageDigest digest = MessageDigest.getInstance("SHA");
+		digest.update(frase.getBytes("UTF-8"));
+		final SecretKeySpec key = new SecretKeySpec(digest.digest(), 0, 16, "AES");
+
+		final Cipher aes = Cipher.getInstance("AES/ECB/PKCS5Padding");
+		if (paraCifrar) {
+			aes.init(Cipher.ENCRYPT_MODE, key);
+		} else {
+			aes.init(Cipher.DECRYPT_MODE, key);
+		}
+
+		return aes;
 	}
 }
