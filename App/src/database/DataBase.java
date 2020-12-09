@@ -1,11 +1,10 @@
 /**
  * 
  */
-package database;
+package dataBase;
 
 import java.util.Scanner;
 import java.util.Vector;
-
 import hotel.Hotel;
 import hotel.Reserva;
 import traductor.Traductor;
@@ -15,32 +14,33 @@ import usuario.Usuario;
  * @author Smolpeceresd
  *
  */
-public class DataBase {
+public class DataBase <H,U> {
 
-	private Vector<Hotel> vectorHoteles=new Vector <Hotel>();
-	private Vector<Usuario> vectorUsuario=new Vector <Usuario>();
-	public DataBase() {};
+	private Vector<H> vectorHoteles=new Vector <H>();
+	private Vector<U> vectorUsuario=new Vector <U>();
+	
+	public DataBase() {}
 
-	public void añadeHotel(Hotel a) {
+	public void añadeHotel(H a) {
 		vectorHoteles.add(a);
 	}
 
-	public void añadeUsuario(Usuario a) {
+	public void añadeUsuario(U a) {
 		vectorUsuario.add(a);
 	}
 
-	public Vector<Hotel> getVectorHoteles() {
+	public Vector<H> getVectorHoteles() {
 		return vectorHoteles;
 	}
-	public Vector<Usuario> getVectorUsuario() {
+	public Vector<U> getVectorUsuario() {
 		return vectorUsuario;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public int hotelRegistrado(String nombre, String contraseña) {
 		for(int i=0;i<this.getVectorHoteles().size();i++) {
-			if(this.getVectorHoteles().elementAt(i).getNombreHotel().equals(nombre)==true) {
-				if(this.getVectorHoteles().elementAt(i).getContraseñaHotel().equals(contraseña)==true) {
+			if(((Hotel) this.getVectorHoteles().elementAt(i)).getNombreHotel().equals(nombre)) {
+				if(((Hotel) this.getVectorHoteles().elementAt(i)).getContraseñaHotel().equals(contraseña)) {
 					return i;
 				}
 			}
@@ -49,8 +49,8 @@ public class DataBase {
 	}
 	public int usuarioRegistrado(String nombre, String contraseña) {
 		for(int i=0;i<this.getVectorUsuario().size();i++) {
-			if(this.getVectorUsuario().elementAt(i).getNombre().equals(nombre.toUpperCase())==true) {
-				if(this.getVectorUsuario().elementAt(i).getContraseña().equals(contraseña)==true) {
+			if(((Usuario) this.getVectorUsuario().elementAt(i)).getNombre().equals(nombre.toUpperCase())) {
+				if(((Usuario) this.getVectorUsuario().elementAt(i)).getContraseña().equals(contraseña)) {
 					return i;
 				}
 			}
@@ -61,7 +61,7 @@ public class DataBase {
 	public int seleccionHotel(Traductor diccionario) {
 		System.out.println("\n\n"+diccionario.getTexto("LISTA")+"\n"+diccionario.getTexto("SELECT_LISTA"));
 		for(int i=0; i<this.getVectorHoteles().size();i++) {
-			System.out.print((i+1)+") "+this.getVectorHoteles().get(i).getNombreHotel());
+			System.out.print((i+1)+") "+((Hotel) this.getVectorHoteles().get(i)).getNombreHotel());
 		}
 		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
@@ -86,10 +86,10 @@ public class DataBase {
 		return eleccion-1;
 	}
 
-	public Hotel buscaHotel(Reserva reserva) {
-		for(Hotel elem:this.getVectorHoteles()) {
-			if(elem.equals(reserva.getHotel())==true) {
-				return elem;
+	public H buscaHotel(Reserva reserva) {
+		for(H elem:this.getVectorHoteles()) {
+			if(elem.equals(reserva.getHotel())) {
+				return  elem;
 			}
 		}
 		return null;// lo pongo por que ha de devolver algo , pero nunca llegara a devolver null
