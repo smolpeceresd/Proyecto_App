@@ -1,4 +1,4 @@
-package principal;
+package Principal;
 
 import java.util.Scanner;
 
@@ -72,10 +72,10 @@ public class Main  {
 		}
 	}
 	public static String descripcion(Traductor diccionario) {
-		if(decisiones("Descripcion",diccionario)==true) {
+		if(decisiones("Descripcion",diccionario)) {
 			@SuppressWarnings("resource")
 			Scanner sc= new Scanner(System.in);
-			System.out.print(diccionario.getTexto("Descripccion_"));
+			System.out.print(diccionario.getTexto("Descripcion_"));
 			String descripcion=sc.nextLine();
 			return descripcion;
 		}else {
@@ -144,7 +144,7 @@ public class Main  {
 	}
 
 	public static Piscina pisciSuit(Traductor diccionario) {
-		if(decisiones(diccionario.getTexto("PISCINA_p"),diccionario)==true) {
+		if(decisiones(diccionario.getTexto("PISCINA_p"),diccionario)) {
 			Piscina pisci=new Piscina(dimensiones(diccionario),climatizada(diccionario));
 			return pisci;
 		}else {
@@ -194,22 +194,12 @@ public class Main  {
 	public static Restaurante restaurante(Traductor diccionario) {
 		Restaurante restaurante= new Restaurante
 				(descripcion(diccionario),
-						desayuno(diccionario)
-						,comida(diccionario),
-						cena(diccionario),
+						decisiones(diccionario.getTexto("DESAYUNO"),diccionario)
+						,decisiones(diccionario.getTexto("COMIDA"),diccionario),
+						decisiones(diccionario.getTexto("CENA"),diccionario),
 						cantidad(diccionario.getTexto("MESAS"),diccionario));
 
 		return restaurante;
-	}
-/// UNIFICAR 
-	public static boolean desayuno(Traductor diccionario) {
-		return decisiones(diccionario.getTexto("DESAYUNO"),diccionario);
-	}
-	public static boolean comida(Traductor diccionario) {
-		return decisiones(diccionario.getTexto("COMIDA"),diccionario);
-	}
-	public static boolean cena(Traductor diccionario) {
-		return decisiones(diccionario.getTexto("CENA"),diccionario);
 	}
 
 	public static int menuRestauranteEdition(Traductor diccionario) {
@@ -322,7 +312,7 @@ public class Main  {
 				}while(deVuelta<LocalDate.now().getDayOfMonth() && deVuelta>12);
 			}
 		}else {
-			if((LocalDate.now().getYear()!=fecha.getYear())==true && (LocalDate.now().getMonth()==fecha.getMonth())==true) {
+			if((LocalDate.now().getYear()!=fecha.getYear()) && (LocalDate.now().getMonth()==fecha.getMonth())) {
 				do {
 					deVuelta=cantidad(dato,diccionario);
 				}while(deVuelta <LocalDate.now().getDayOfMonth() && deVuelta > Month.of(fecha.getMonthValue()).length(fecha.isLeapYear()));
@@ -338,18 +328,18 @@ public class Main  {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
 		Traductor diccionario=new Traductor(seleccionaIdioma());
-		DataBase data=new DataBase();
+		DataBase<Hotel,Usuario> data=new DataBase<Hotel,Usuario>();
 		int eleccion=menu(diccionario);//USUARIO o EMPRESA
 		while(eleccion!=3) {
 			if(eleccion==1) {
-				if(registrado(diccionario)==true) {
+				if(registrado(diccionario)) {
 					int perfil=data.usuarioRegistrado(datoString(diccionario.getTexto("NOMBRE_US")),datoString(diccionario.getTexto("R_CONTRASEÑA")));
 					if(perfil!=-1) {
 						int decision=menuUsuario(diccionario);
 						while(decision!=3) {
 							if(decision==1) {// ver tus reservas
-								if(decisiones(diccionario.getTexto("MODIFICAR_RESERVA"),diccionario)==true) {
-									if(decisiones(diccionario.getTexto("ELIMINAR"),diccionario)==true) {
+								if(decisiones(diccionario.getTexto("MODIFICAR_RESERVA"),diccionario)) {
+									if(decisiones(diccionario.getTexto("ELIMINAR"),diccionario)) {
 										if(data.getVectorUsuario().get(perfil).getReservas().size()>0) {
 											int reserva=data.getVectorUsuario().get(perfil).eligeReserva(diccionario);// poss de la reserva a gestionar
 
@@ -380,7 +370,7 @@ public class Main  {
 								do {
 									int seleccionHotel=data.seleccionHotel(diccionario);
 									System.out.println((data.getVectorHoteles().get(seleccionHotel).toString(diccionario)));
-									if(decisiones(diccionario.getTexto("RESERVA"),diccionario)==true) {
+									if(decisiones(diccionario.getTexto("RESERVA"),diccionario)) {
 										int room=data.seleccionaHabitacion(data.getVectorHoteles().get(seleccionHotel),diccionario);
 										//a hacer las competentes reservas->
 										LocalDate entrada=generaFecha(1,LocalDate.now().getYear(),null,diccionario);
@@ -400,7 +390,7 @@ public class Main  {
 														salida)
 												);										
 									}
-								}while(decisiones(diccionario.getTexto("KEEP_ON"),diccionario)==true);
+								}while(decisiones(diccionario.getTexto("KEEP_ON"),diccionario));
 							}
 							decision=menuUsuario(diccionario);
 						}
@@ -423,7 +413,7 @@ public class Main  {
 					System.out.println("\n\n\n"+diccionario.getTexto("TODO")+"\n\n\n");
 				}
 			}else if( eleccion==2) {
-				if(registrado(diccionario)==true){
+				if(registrado(diccionario)){
 					int hotel=data.hotelRegistrado(datoString(diccionario.getTexto("NOMBRE_H_R")),datoString(diccionario.getTexto("R_CONTRASEÑA")));
 					if(hotel!=-1) {//si estas registrado
 						System.out.println("\n\n"+diccionario.getTexto("MUESTREO_H")+"\n\n"+data.getVectorHoteles().get(hotel).toString(diccionario)+"\n\n");
@@ -471,9 +461,9 @@ public class Main  {
 									while(edicionRestaurante!=5) {
 										switch(edicionRestaurante) {
 										case 1:data.getVectorHoteles().get(hotel).getRestaurante().setDescripcion(descripcion(diccionario));break;
-										case 2:data.getVectorHoteles().get(hotel).getRestaurante().setDesayuno(desayuno(diccionario));break;
-										case 3:data.getVectorHoteles().get(hotel).getRestaurante().setComida(comida(diccionario));break;
-										case 4:data.getVectorHoteles().get(hotel).getRestaurante().setCena(cena(diccionario));break;
+										case 2:data.getVectorHoteles().get(hotel).getRestaurante().setDesayuno(decisiones(diccionario.getTexto("DESAYUNO"),diccionario));break;
+										case 3:data.getVectorHoteles().get(hotel).getRestaurante().setComida(decisiones(diccionario.getTexto("COMIDA"),diccionario));break;
+										case 4:data.getVectorHoteles().get(hotel).getRestaurante().setCena(decisiones(diccionario.getTexto("CENA"),diccionario));break;
 										case 5:System.out.println("\n\n"+diccionario.getTexto("TODO")+"\n");break;
 										default: System.out.println("\n"+diccionario.getTexto("ERROR")+"\n");
 										}
@@ -518,17 +508,17 @@ public class Main  {
 									datoString(diccionario.getTexto("CONTRASEÑA_H")),
 									cantidad(diccionario.getTexto("ESTRELLAS"),diccionario)
 									);
-					if(decisiones(diccionario.getTexto("PREGUNTA_P"),diccionario)==true) {
+					if(decisiones(diccionario.getTexto("PREGUNTA_P"),diccionario)) {
 						hotel.setPisci(piscina(diccionario));
 					}
-					if(decisiones(diccionario.getTexto("PREGUNTA_R"),diccionario)==true) {
+					if(decisiones(diccionario.getTexto("PREGUNTA_R"),diccionario)) {
 						hotel.setRestaurante(restaurante(diccionario));
 					}
-					if(decisiones(diccionario.getTexto("MASCOTAS"),diccionario)==true) {
+					if(decisiones(diccionario.getTexto("MASCOTAS"),diccionario)) {
 						hotel.setMascotas(mascotas(diccionario));
 					}
 					System.out.println("\n"+diccionario.getTexto("HABITACIONES"));
-					if(decisiones(diccionario.getTexto("SUIT"),diccionario)==true){
+					if(decisiones(diccionario.getTexto("SUIT"),diccionario)){
 						int a=cantidad(diccionario.getTexto("C_SUIT"),diccionario);
 						for(int i=0; i<a;i++) {
 							System.out.println(diccionario.getTexto("ITERACION")+(i+1));
