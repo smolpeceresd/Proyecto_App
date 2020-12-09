@@ -3,11 +3,15 @@
  */
 package hotel;
 
+import java.security.MessageDigest;
 import java.util.Scanner;
 import java.util.Vector;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
 import habitacion.Habitacion;
-import principal.Extras;
+import Principal.Extras;
 import traductor.Traductor;
 import usuario.Usuario;
 /**
@@ -18,7 +22,7 @@ public class Hotel  implements Extras {
 	//Atributos
 	private int numeroHabitaciones=0;
 	private String nombreHotel;
-	private String contraseñaHotel;
+	private byte[] contraseñaHotel;
 	private String telefono;
 	private String direccion;
 	private boolean aparcamiento;
@@ -42,7 +46,7 @@ public class Hotel  implements Extras {
 		this.direccion = direccion;
 		this.aparcamiento = aparcamiento;
 		this.niños = niños;
-		this.contraseñaHotel=contraseña;
+		this.contraseñaHotel=encripta(contraseña);
 		this.numeroEstrellas=numEstrellas;
 	}
 
@@ -135,12 +139,12 @@ public class Hotel  implements Extras {
 	///////////////////////////////////////////////////
 
 	public String getContraseñaHotel() {
-		return contraseñaHotel;
+		return descomponer(this.contraseñaHotel);
 	}
 
 
 	public void setContraseñaHotel(String contraseñaHotel) {
-		this.contraseñaHotel = contraseñaHotel;
+		this.contraseñaHotel = encripta(contraseñaHotel);
 
 	}
 	///////////////////////////////////////////////////
@@ -175,7 +179,7 @@ public class Hotel  implements Extras {
 	public int restantes(Habitacion a) {
 		int restoDeHabitaciones=a.getNumeroTipo();
 		for(Habitacion elem:this.getRooms()) {
-			if(elem.equals(a)==true) {
+			if(elem.equals(a)) {
 				restoDeHabitaciones-=1;
 			}
 		}
@@ -197,7 +201,7 @@ public class Hotel  implements Extras {
 
 	public void setReservas(Usuario user, Habitacion antigua,Habitacion nueva) {
 		for(int i=0;i<this.getReservas().size();i++) {
-			if(this.getReservas().get(i).getUsuario().equals(user)==true) {//si coindice el usuario
+			if(this.getReservas().get(i).getUsuario().equals(user)) {//si coindice el usuario
 				if(this.getReservas().get(i).getHabitacion().equals(antigua)) {// si coincide la antiagua
 					this.getReservas().get(i).setHabitacion(nueva);//mete la nueva
 					break;// no me interesa cambiar mas
@@ -231,10 +235,10 @@ public class Hotel  implements Extras {
 		deVuelta+=("\n*"+diccionario.getTexto("TEF_Hot")+this.getTelefono());
 		deVuelta+=("\n*"+diccionario.getTexto("DIR_Hot")+this.getDireccion());
 
-		if(this.isAparcamiento()==true) {
+		if(this.isAparcamiento()) {
 			deVuelta+=("\n*"+diccionario.getTexto("APARCAMIENTO"));
 		}
-		if(this.isNiños()==true) {
+		if(this.isNiños()) {
 			deVuelta+=("\n*"+diccionario.getTexto("NIÑOS"));
 		}
 		if(this.getPisci()!=null) {
@@ -250,12 +254,12 @@ public class Hotel  implements Extras {
 
 		for(Habitacion elem:this.getRooms()) {
 
-			if(elem.getClass().getSimpleName().equals("Habitacion")==true) {
+			if(elem.getClass().getSimpleName().equals("Habitacion")) {
 				deVuelta+="\n\n\n "+diccionario.getTexto("ESTANDAR_TYPE_")+"\n"+elem.toString(diccionario);
 			}else
 				deVuelta+="\n\n\n "+diccionario.getTexto("ROOM_TYPE")+elem.getClass().getSimpleName()+"\n"+elem.toString(diccionario);
 		}
-		
+
 		deVuelta+=(this.getDescuento()!=0)?("\n*"+diccionario.getTexto("Descuento")+this.getDescuento()+"%"):("\n*"+diccionario.getComando("No_Descuento"));
 		return deVuelta;
 	}
@@ -277,8 +281,8 @@ public class Hotel  implements Extras {
 
 	public void eliminaReserva(Usuario user,Reserva reserva) {
 		for(int i=0;i<this.getReservas().size();i++) {
-			if(this.getReservas().get(i).getUsuario().equals(user)==true) {//si coincide el usuario
-				if(this.getReservas().get(i).getHabitacion().equals(reserva.getHabitacion())==true) {//y si coincide la habitacion reservada
+			if(this.getReservas().get(i).getUsuario().equals(user)) {//si coincide el usuario
+				if(this.getReservas().get(i).getHabitacion().equals(reserva.getHabitacion())) {//y si coincide la habitacion reservada
 					this.getReservas().remove(i);//borrala
 					break;//sal de aqui
 				}
@@ -295,5 +299,52 @@ public class Hotel  implements Extras {
 	public void setDescuento(int descuento) {
 		this.descuento = Math.abs(descuento);
 	}
+	///////////////////////////////////////////////////////////CIFRADO
+	public byte[] encripta(String contraseña) {
+		try {
+			return cifra(contraseña);
+		} catch (Exception e) {
+			System.out.println("La constraseña no es valida");
+		}
+		return null;
+	}
+	
+	public String descomponer(byte[] contraseña) {
+		try {
+			return descifra(contraseña);
+		} catch (Exception e) {
+			System.out.println("Algo ha ido mal");
+		}
+		return null;
+	}
+	
+	public  byte[] cifra(String sinCifrar) throws Exception {
+		final byte[] bytes = sinCifrar.getBytes("UTF-8");
+		final Cipher aes = obtieneCipher(true);
+		final byte[] cifrado = aes.doFinal(bytes);
+		return cifrado;
+	}
 
+	public  String descifra(byte[] cifrado) throws Exception {
+		final Cipher aes = obtieneCipher(false);
+		final byte[] bytes = aes.doFinal(cifrado);
+		final String sinCifrar = new String(bytes, "UTF-8");
+		return sinCifrar;
+	}
+
+	private  Cipher obtieneCipher(boolean paraCifrar) throws Exception {
+		final String frase = "";
+		final MessageDigest digest = MessageDigest.getInstance("SHA");
+		digest.update(frase.getBytes("UTF-8"));
+		final SecretKeySpec key = new SecretKeySpec(digest.digest(), 0, 16, "AES");
+
+		final Cipher aes = Cipher.getInstance("AES/ECB/PKCS5Padding");
+		if (paraCifrar) {
+			aes.init(Cipher.ENCRYPT_MODE, key);
+		} else {
+			aes.init(Cipher.DECRYPT_MODE, key);
+		}
+
+		return aes;
+	}
 }
