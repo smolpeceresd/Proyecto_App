@@ -12,14 +12,14 @@ class DataBaseTest {
 
 	@Test
 	void test() {
-		DataBase a= new DataBase();
+		DataBase<Hotel,Usuario>a= new DataBase<Hotel,Usuario>();
 		a.getVectorHoteles().isEmpty();
 		a.getVectorUsuario().isEmpty();
 		assertEquals(true, a.getVectorHoteles().isEmpty());
 		assertEquals(true, a.getVectorUsuario().isEmpty());
 		
-		a.añadeHotel(new Hotel("NH", "91","Direccion", true, true, "nh", 4));
-		a.añadeUsuario(new Usuario("Santi", 10, "Tarjeta", "Santiago@hotmail.com", "+34", "contra", "DNI"));
+		a.aÃ±adeHotel(new Hotel("NH", "91","Direccion", true, true, "nh", 4));
+		a.aÃ±adeUsuario(new Usuario("Santi", 10, "Tarjeta", "Santiago@hotmail.com", "+34", "contra", "DNI"));
 		
 		assertEquals(false, a.getVectorHoteles().isEmpty());
 		assertEquals(false, a.getVectorUsuario().isEmpty());
